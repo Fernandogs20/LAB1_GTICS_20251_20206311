@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Resultados de la Carrera</title>
+</head>
+<body>
+
+<div class="container">
+  <h2 class="text-success">
+    Resultados de la Carrera
+  </h2>
+
+  <!-- Ganador -->
+  <div class="winner-box">
+    Ganador: <span th:text="${winner.name}"></span>
+  </div>
+
+  <!-- Posiciones Finales -->
+  <h5>Posiciones finales:</h5>
+
+  <!-- Resultado de la Apuesta -->
+  <div th:if="${userWon}">
+    <b>¡Felicidades! Has ganado <span th:text="${betAmount * 2}"></span></b>
+  </div>
+  <div th:unless="${userWon}">
+    Lo siento, has perdido tu apuesta de <span th:text="${betAmount}"></span>
+  </div>
+
+  <!-- Botón para volver a jugar -->
+  <a href="/" class="btn btn-green w-100 mt-3">VOLVER A JUGAR</a>
+</div>
+
+</body>
+</html>
